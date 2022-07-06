@@ -1,0 +1,24 @@
+[user]
+	email = moward@users.noreply.github.com
+	name = Matt Howard
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[core]
+	excludesfile = /Users/matt/.gitignore
+	editor = code --wait
+[alias]
+	s = status
+	co = checkout
+	cob = "!git checkout -b matt/\"$1\" #" # ! runs cmd in shell, # prevents appending args
+	print-main-branch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' #"
+	mc = merge --continue
+	mm = "!git fetch origin $(git print-main-branch) && git merge origin/$(git print-main-branch) #"
+	ca = commit --amend --no-edit
+	spu = stash push
+	spo = stash pop
+	rh = "!git reset --hard origin/$(git rev-parse --abbrev-ref HEAD ) #"
+[init]
+	defaultBranch = main

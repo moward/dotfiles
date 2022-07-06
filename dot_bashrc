@@ -1,0 +1,5 @@
+alias k='kubectl'
+alias mk='minikube'
+alias pr='poetry run'
+alias prp='poetry run python'
+alias manage='poetry run python backend/manage.py'
